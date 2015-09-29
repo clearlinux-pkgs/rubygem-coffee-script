@@ -4,7 +4,7 @@
 #
 Name     : rubygem-coffee-script
 Version  : 2.4.1
-Release  : 3
+Release  : 4
 URL      : https://rubygems.org/downloads/coffee-script-2.4.1.gem
 Source0  : https://rubygems.org/downloads/coffee-script-2.4.1.gem
 Summary  : No detailed summary available
