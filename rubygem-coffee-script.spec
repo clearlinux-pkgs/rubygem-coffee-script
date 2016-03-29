@@ -4,7 +4,7 @@
 #
 Name     : rubygem-coffee-script
 Version  : 2.4.1
-Release  : 4
+Release  : 5
 URL      : https://rubygems.org/downloads/coffee-script-2.4.1.gem
 Source0  : https://rubygems.org/downloads/coffee-script-2.4.1.gem
 Summary  : No detailed summary available
@@ -31,17 +31,17 @@ gem spec %{SOURCE0} -l --ruby > rubygem-coffee-script.gemspec
 gem build rubygem-coffee-script.gemspec
 
 %install
-gem_dir=$(ruby -e'puts Gem.default_dir')
+%global gem_dir $(ruby -e'puts Gem.default_dir')
 gem install -V \
 --local \
 --force \
---install-dir .${gem_dir} \
+--install-dir .%{gem_dir} \
 --bindir .%{_bindir} \
 coffee-script-2.4.1.gem
 
-mkdir -p %{buildroot}${gem_dir}
-cp -pa .${gem_dir}/* \
-%{buildroot}${gem_dir}
+mkdir -p %{buildroot}%{gem_dir}
+cp -pa .%{gem_dir}/* \
+%{buildroot}%{gem_dir}
 
 if [ -d .%{_bindir} ]; then
 mkdir -p %{buildroot}%{_bindir}
@@ -49,24 +49,12 @@ cp -pa .%{_bindir}/* \
 %{buildroot}%{_bindir}/
 fi
 
+
 %files
 %defattr(-,root,root,-)
-/usr/lib64/ruby/gems/2.2.0/cache/coffee-script-2.4.1.gem
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/CoffeeScript/Source/bare_option-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/CoffeeScript/Source/cdesc-Source.ri
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/CoffeeScript/Source/contents-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/CoffeeScript/Source/context-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/CoffeeScript/Source/path%3d-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/CoffeeScript/Source/path-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/CoffeeScript/Source/version-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/CoffeeScript/cdesc-CoffeeScript.ri
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/CoffeeScript/compile-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/CoffeeScript/engine%3d-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/CoffeeScript/engine-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/CoffeeScript/version-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/coffee-script-2.4.1/ri/cache.ri
-/usr/lib64/ruby/gems/2.2.0/gems/coffee-script-2.4.1/LICENSE
-/usr/lib64/ruby/gems/2.2.0/gems/coffee-script-2.4.1/README.md
-/usr/lib64/ruby/gems/2.2.0/gems/coffee-script-2.4.1/lib/coffee-script.rb
-/usr/lib64/ruby/gems/2.2.0/gems/coffee-script-2.4.1/lib/coffee_script.rb
-/usr/lib64/ruby/gems/2.2.0/specifications/coffee-script-2.4.1.gemspec
+/usr/lib64/ruby/gems/2.3.0/cache/coffee-script-2.4.1.gem
+/usr/lib64/ruby/gems/2.3.0/gems/coffee-script-2.4.1/LICENSE
+/usr/lib64/ruby/gems/2.3.0/gems/coffee-script-2.4.1/README.md
+/usr/lib64/ruby/gems/2.3.0/gems/coffee-script-2.4.1/lib/coffee-script.rb
+/usr/lib64/ruby/gems/2.3.0/gems/coffee-script-2.4.1/lib/coffee_script.rb
+/usr/lib64/ruby/gems/2.3.0/specifications/coffee-script-2.4.1.gemspec
